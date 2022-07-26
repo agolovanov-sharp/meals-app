@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/material.dart';
-import 'package:meals_app/meals_screen.dart';
+import 'package:meals_app/screens/meals_screen.dart';
 import 'package:meals_app/models/category.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -11,15 +11,7 @@ class CategoryItem extends StatelessWidget {
   const CategoryItem({Key? key, required this.category}) : super(key: key);
 
   void handleCategoryPress(BuildContext ctx) {
-    Navigator.of(ctx).push(
-      MaterialPageRoute(
-        builder: (_) {
-          return MealsScreen(
-            category: category,
-          );
-        },
-      ),
-    );
+    Navigator.of(ctx).pushNamed(MealsScreen.routeName, arguments: category);
   }
 
   @override
